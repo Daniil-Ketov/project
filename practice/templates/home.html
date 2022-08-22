@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
-    <div class="container content">
-        <h2 class="text-center">Welcome to Social!</h2>
-        <div class="text-center">
-            <a href="#" class="btn btn-info">Войти</a>
-            <a href="#" class="btn btn-primary">Регистрация</a>
+    <body style="background: url('static/img/main-page.jpg');">
+    <div class="container row">
+        <div class="container col-6" style="background-color: #39ff14; height: 100vh; padding: 50vh 0 0 0;">
+            <h1 class="col display-1">Welcome to Social!</h1>
+        </div>
+        <div class="container col-6 align-item-center" style="height: 100vh; padding: 50vh 0 0 0;">
+            <div class="text-center">
+                <a href="/login/" class="btn" style="background-color: #f8f8ff;">Войти</a>
+                <a href="/register/" class="btn" style="background-color: #90ee90;">Регистрация</a>
+            </div>
         </div>
     </div>
+    </body>
 {% endblock %}

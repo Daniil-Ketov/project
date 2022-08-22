@@ -1,0 +1,35 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: #353839;">
+    <a class="navbar-brand fs-2 text-white" href="/">
+        <i class="bi bi-people"></i> Social
+    </a>
+    <div class="nav-item dropdown block">
+        <div class="dropdown">
+            {% if user.profile.avatar.name %}
+                <img class="btn dropdown-toggle" src="{{ user.profile.avatar.url }}" class="mainpage-avatar-img img-thumbnail" data-bs-toggle="dropdown" class="img-responsive">
+            {% else %}
+                <img class="btn dropdown-toggle" src="{% static 'img/user.svg' %}" class="mainpage-avatar-img img-thumbnail" data-bs-toggle="dropdown" class="img-responsive">
+            {% endif %}
+            <ul class="dropdown-menu">
+                <li>
+                    <b>{{ user.get_full_name }}</b>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-person-circle"></i> Мой профиль
+                    </a>
+                    <a href="{% url 'edit_profile' %}" class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-pencil-square"></i> Редактировать
+                    </a>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-box-arrow-right"></i> Выйти
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form class="form-inline">
+        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+        <button class="btn btn-sm btn-outline-white my-2 my-sm-0 text-white">Поиск</button>
+    </form>
+</nav>
